@@ -1,0 +1,16 @@
+
+        mDatabase = database.getReference("vulcanesports").child("turnament").child("1");
+        ValueEventListener eventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                g1Title1.setText(""+dataSnapshot.child("title").getValue());
+                g1price1.setText(""+dataSnapshot.child("prize1").getValue());
+                g1price2.setText(""+dataSnapshot.child("prize2").getValue());
+                g1price3.setText(""+dataSnapshot.child("prize3").getValue());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        };
+        mDatabase.addListenerForSingleValueEvent(eventListener);

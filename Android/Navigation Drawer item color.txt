@@ -1,0 +1,2 @@
+app:itemIconTint="@color/black"
+app:itemTextColor="@color/primary_text"

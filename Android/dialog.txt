@@ -1,0 +1,37 @@
+ DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            // Setting Alert Dialog Title
+            alertDialogBuilder.setTitle("???? ????? ???? ??? ??? ????");
+            // Icon Of Alert Dialog
+            alertDialogBuilder.setIcon(R.drawable.question_mark);
+            // Setting Alert Dialog Message
+//            alertDialogBuilder.setMessage("Are you sure,You want to exit");
+            alertDialogBuilder.setCancelable(false);
+
+            alertDialogBuilder.setPositiveButton("?????", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface arg0, int arg1) {
+                    finish();
+                }
+            });
+
+            alertDialogBuilder.setNegativeButton("??", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+            alertDialogBuilder.setNeutralButton("????? ???", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+        }

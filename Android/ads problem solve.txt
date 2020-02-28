@@ -1,0 +1,4 @@
+implementation 'com.google.android.gms:play-services-maps:16.1.0'
+
+
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>

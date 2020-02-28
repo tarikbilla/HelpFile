@@ -1,0 +1,19 @@
+MediaPlayer mPlayer =  MediaPlayer.create(mContext, R.raw.name);
+try {
+    mPlayer.start();
+    }catch (Exception e) {
+	e.printStackTrace();
+        Toast.makeText(mContext, e.toString(), Toast.LENGTH_SHORT).show();
+    }
+}
+
+
+
+/*other code*/
+
+
+
+    mMediaPlayer = MediaPlayer.create(context, R.raw.kalimba);
+    mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+    mMediaPlayer.reset();
+    mMediaPlayer.stop();
