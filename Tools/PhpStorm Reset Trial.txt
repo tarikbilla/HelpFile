@@ -1,0 +1,53 @@
+Windows:
+For Reset PHP Storm free trial reset for windows OS, copy below code and save use .bat extension like “jetbrainsTrialReset.bat“.
+
+
+@echo off
+REM Delete eval folder with licence key and options.xml which contains a reference to it
+for %%I in ("WebStorm", "IntelliJ", "CLion", "Rider", "GoLand", "PhpStorm", "Resharper", "PyCharm") do (
+    for /d %%a in ("%APPDATA%\JetBrains\%%I*") do (
+        rd /s /q "%%a/eval"
+        del /q "%%a\options\other.xml"
+    )
+)
+ 
+
+
+reg delete "HKEY_CURRENT_USER\SOFTWARE\JavaSoft\Prefs\jetbrains" /f
+Run .bat file.
+
+Mac:
+if you use mac operating system and want to reset PhpStormTrial. Copy below code and save with .sh extension like Mac.sh and run
+
+
+
+#!/bin/bash
+ 
+echo "removing evaluation key"
+rm ~/.IntelliJIdea15/config/eval/idea15.evaluation.key
+# for mac go to: /Users/username/Library/Preferences/IntelliJIdea2016.3/eval/idea163.evaluation.key
+ 
+echo "resetting evalsprt in options.xml"
+sed -i '/evlsprt/d' ~/.IntelliJIdea15/config/options/options.xml
+# for mac go to: /Users/lzhoucs/Library/Preferences/IntelliJIdea2016.3/options/options.xml
+ 
+echo "resetting evalsprt in prefs.xml"
+sed -i '/evlsprt/d' ~/.java/.userPrefs/prefs.xml
+# for windows, delete HKEY_CURRENT_USER\Software\JavaSoft\Prefs\jetbrains\idea
+# for mac
+defaults delete com.apple.java.util.prefs 2> /dev/null
+ 
+for f in ~/Library/Preferences/jetbrains.*.plist; do
+    if [[ -f $f ]]; then
+        fn=${f##*/}; key=${fn%.plist}
+        echo delete $key from pref and file $f
+        defaults delete "${fn%.plist}" 2>/dev/null && rm "$f"
+    fi
+done
+Linux:
+To reset PhpStorm Trial From Linux OS just uses these commands:
+
+
+rm -rf ~/.config/JetBrains/*
+rm -rf ~/.local/share/JetBrains/consentOptions
+rm -rf ~/.java/.userPrefs
